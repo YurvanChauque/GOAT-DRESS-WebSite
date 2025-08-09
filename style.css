@@ -1,0 +1,396 @@
+/* RESET BÁSICO */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif; /* Considere usar Google Fonts para um toque mais streetwear */
+  background-color: #EFE6DD;
+  color: #000000;
+  line-height: 1.8;
+}
+
+/* CONTAINER GERAL */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+}
+
+/* TÍTULOS */
+h1, h2, h3 {
+  color: #00d0ff;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+/* --- */
+
+/* NAVBAR */
+header.container {
+  background-color: #00d0ff; /* Fundo mais escuro para destaque */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem; /* Ajuste o padding */
+  position: sticky; /* Torna a navbar fixa ao rolar */
+  top: 0;
+  z-index: 1000; /* Garante que fique acima de outros elementos */
+  box-shadow: 0 2px 10px rgba(7, 67, 233, 0.726); /* Sombra sutil */
+}
+
+header.container h1 {
+  margin: 0; /* Remove a margem extra do h1 */
+  font-size: 2rem; /* Tamanho da fonte do logo */
+  letter-spacing: 2px; /* Espaçamento entre letras */
+}
+
+header.container nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem; /* Aumenta o espaçamento entre os links */
+}
+
+header.container nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+  position: relative; /* Para o efeito de sublinhado */
+}
+
+header.container nav a:hover {
+  color: #00d0ff; /* Muda a cor no hover */
+  transform: translateY(-2px); /* Pequeno movimento para cima */
+}
+
+/* Efeito de sublinhado animado na navbar */
+header.container nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px; /* Espessura do sublinhado */
+  background: #20f708;
+  left: 0;
+  bottom: -5px; /* Posição abaixo do texto */
+  transition: width 0.3s ease-out;
+}
+
+header.container nav a:hover::after {
+  width: 100%;
+}
+
+/* --- */
+
+/* HERO SECTION */
+.hero {
+  background: url(img/IMG_7912-1.JPG) no-repeat center center/cover; /* Substitua pela sua imagem */
+  height: 110vh; /* Ajuste conforme necessário */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden; /* Garante que elementos filhos não vazem */
+}
+
+.hero::before { /* Overlay escuro para melhorar a leitura do texto */
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Escurece a imagem de fundo */
+}
+
+.hero-content {
+  z-index: 1; /* Garante que o conteúdo fique acima do overlay */
+  color: #fff;
+}
+
+.hero h2 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.btn-hero {
+  display: inline-block;
+  background-color: #00d0ff;
+  color: #fff;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.btn-hero:hover {
+  background-color: #20f708;
+  transform: translateY(-3px);
+}
+
+/* --- */
+
+/* PRODUTOS */
+.produtos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.card-produto {
+  background-color: #00d0ff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(65, 241, 100, 0.704);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-produto:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(255, 77, 0, 0.6);
+}
+
+.card-produto img {
+  width: 100%;
+  height: 250px; /* Altura fixa para as imagens */
+  object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+  display: block;
+  border-bottom: 3px solid #20f708; /* Linha de destaque na base da imagem */
+}
+
+.card-produto .conteudo {
+  padding: 1.5rem;
+}
+
+.card-produto h3 {
+  margin-bottom: 0.5rem;
+}
+
+.card-produto p {
+  font-size: 0.9rem;
+  color: #060505;
+  margin-bottom: 1rem;
+}
+
+/* --- */
+
+/* FORMULÁRIOS */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+label {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+select, input[type="text"] {
+  padding: 0.6rem; /* Um pouco mais de padding */
+  border-radius: 5px;
+  border: 1px solid #00aaff; /* Borda sutil com a cor da marca */
+  background-color: #757c81cb;
+  color: #0a0707;
+  outline: none; /* Remove o outline padrão */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+select:focus, input[type="text"]:focus {
+  border-color: #20f708; /* Cor da borda ao focar */
+  box-shadow: 0 0 5px rgba(14, 241, 33, 0.926); /* Sombra sutil ao focar */
+}
+
+button {
+  background-color: #0088ff;
+  color: #0a0707;
+  border: none;
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  transition: background 0.3s ease, transform 0.3s ease; /* Adicionado transform para um toque extra */
+}
+
+button:hover {
+  background-color: #20f708;
+  transform: translateY(-2px); /* Pequeno movimento no hover do botão */
+}
+
+/* Garante transições suaves em todos os botões e links */
+button, .btn-hero, header.container nav a {
+  transition: all 0.3s ease-in-out;
+}
+
+/* --- */
+
+/* RODAPÉ */
+footer.container {
+  text-align: center;
+  padding: 2rem;
+  margin-top: 4rem; /* Mais espaçamento superior */
+  border-top: 1px solid rgba(37, 243, 14, 0.89); /* Linha divisória */
+  font-size: 0.85rem;
+  color: #070505;
+}
+
+footer.container p {
+  margin: 0;
+}
+
+/* --- */
+
+/* BOTÃO WHATSAPP FLUTUANTE */
+.whatsapp-float {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 80px; /* Tamanho do ícone */
+  height: 80px;
+  background-color: #25D366; /* Cor do WhatsApp */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  z-index: 999;
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+.whatsapp-float img {
+  width: 60%; /* Tamanho do ícone dentro do círculo */
+  height: auto;
+}
+
+/* --- */
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem; /* Reduz padding em telas menores */
+  }
+
+  /* Navbar em telas menores */
+  header.container {
+    flex-direction: column; /* Empilha logo e navegação */
+    padding: 1rem;
+  }
+
+  header.container h1 {
+    margin-bottom: 1rem;
+  }
+
+  header.container nav ul {
+    flex-wrap: wrap; /* Quebra links em várias linhas se necessário */
+    justify-content: center;
+    gap: 1rem; /* Reduz o espaçamento entre os links */
+  }
+
+  header.container nav a {
+    font-size: 0.9rem;
+  }
+
+  /* Hero Section em telas menores */
+  .hero {
+    height: 60vh; /* Altura menor para a hero section */
+  }
+  .hero h2 {
+    font-size: 2.5rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .btn-hero {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  /* Produtos em telas menores */
+  .card-produto .conteudo {
+    padding: 1rem;
+  }
+
+  h1, h2 {
+    font-size: 1.8rem; /* Ajuste para títulos principais */
+  }
+
+  h3 {
+    font-size: 1.2rem; /* Ajuste para títulos de produto */
+  }
+
+  .whatsapp-float {
+    width: 50px; /* Ícone do WhatsApp menor em telas pequenas */
+    height: 50px;
+    bottom: 15px;
+    right: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h2 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 0.9rem;
+  }
+}/* Galeria Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  padding: 40px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.9);
+}
+
+.modal-conteudo {
+  background: #111;
+  margin: auto;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 800px;
+  color: #fff;
+}
+
+.modal-conteudo iframe,
+.modal-conteudo img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.fechar {
+  color: #fff;
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.modal-conteudo img {
+  max-height: 400px;
+  object-fit: cover;
+}
